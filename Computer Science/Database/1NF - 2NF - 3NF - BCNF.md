@@ -1,7 +1,7 @@
 #dev
 
 
-- [ ] 1NF - 2NF - 3NF - BCNF ➕ 2025-06-14 
+- [x] 1NF - 2NF - 3NF - BCNF ➕ 2025-06-14 ✅ 2025-06-19
 
 Database normalization is the process of organizing columns and tables in a relational database to minimize data redundancy and improve data integrity. Each normal form represents a set of rules that builds upon the last.
 

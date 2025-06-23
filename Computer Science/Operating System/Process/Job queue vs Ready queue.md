@@ -1,4 +1,4 @@
-- [ ] Job queue vs Ready queue ➕ 2025-06-17 
+- [x] Job queue vs Ready queue ➕ 2025-06-17 ✅ 2025-06-23
 
 
 A **job queue** consists of all processes in the system, including those spooled to a mass-storage device like a disk, waiting for execution. In contrast, a **ready queue** is a list of all processes that are residing in main memory and are ready and waiting to be executed by the CPU.

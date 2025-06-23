@@ -1,7 +1,7 @@
 #database #nomarlization
 
 
-- [ ] 3NF - BCNF ➕ 2025-06-14 
+- [x] 3NF - BCNF ➕ 2025-06-14 ✅ 2025-06-19
 
 ## 3NF
 

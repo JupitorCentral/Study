@@ -1,7 +1,7 @@
 #database #normalization
 
 
-- [ ] 1NF - 2NF ➕ 2025-06-14 
+- [x] 1NF - 2NF ➕ 2025-06-14 ✅ 2025-06-19
 
 ### 1st Normal Form (1NF)
 
