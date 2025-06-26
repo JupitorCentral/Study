@@ -1,6 +1,14 @@
 - [ ] Understanding tsconfig Project References and the TypeScript Build Process ➕ 2025-06-25 
 
-
+```json
+{
+	"files": [],
+	"references": [
+		{ "path": "./tsconfig.app.json" },
+		{ "path": "./tsconfig.node.json" }
+	]
+}
+```
 ### I have this tsconfig.json file with a "references" array; what does this configuration mean, and why is it necessary?
 
 The `tsconfig.json` file you've shown is a TypeScript configuration file that serves as the **central control hub** for your TypeScript project. This particular configuration demonstrates a **project references** setup, which is commonly used in modern development environments like Vite.
