@@ -124,8 +124,7 @@ User Request → Express.js (SSR) → Spring Boot (API) → PostgreSQL (Data)
 				↓
 
 		Subsequent requests bypass Express.js:
-		
-		React → Spring Boot API → PostgreSQL
+			React → Spring Boot API → PostgreSQL
 
 ```
 
