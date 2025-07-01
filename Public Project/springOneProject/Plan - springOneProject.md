@@ -19,23 +19,28 @@
 - [x] vike process and express.js  ? ➕ 2025-06-30 📅 2025-07-01 ✅ 2025-07-01
       [[Express.js and Vike & Vite Integration for Server-Side Rendering]]
 
-- [ ] basic understanding of server/index.js ➕ 2025-06-30 📅 2025-07-01 
+- [x] basic understanding of server/index.js ➕ 2025-06-30 📅 2025-07-01 ✅ 2025-07-01
+      [[Understanding an Express.js SSR Server with Vike and Vite]]
 
-- [ ] What's the build process ? which one build which things ? Flow of request ? ➕ 2025-06-30 📅 2025-07-01 
+- [x] What's the build process ? which one build which things ? Flow of request ? ➕ 2025-06-30 📅 2025-07-01 ✅ 2025-07-01
+      [[springOneProject - Front Architecture Validation]]
+      [[Understanding Vite, Vike, and SSR in a React Project]]
 
-- [ ] where built files located and which thing uses it , when ? ➕ 2025-06-30 📅 2025-07-01 
+- [x] where built files located and which thing uses it , when ? ➕ 2025-06-30 📅 2025-07-01 ✅ 2025-07-01
+      [[springOneProject - Front Architecture Validation]]
+      [[Understanding Vite, Vike, and SSR in a React Project]]
 
-
-- [ ] modify current project's basic index page with proper codings ; App.tsx, main.tsx, /pages/index/+Page.tsx ➕ 2025-06-29 📅 2025-06-30 
+- [x] modify current project's basic index page with proper codings ; App.tsx, main.tsx, /pages/index/+Page.tsx ➕ 2025-06-29 📅 2025-06-30 ✅ 2025-07-01
       - maybe App.tsx will be removed
+        [[Front Entry Points, Necessity of main.tsx when using SSR]]
 
-- [ ] test initial front and backend project  ➕ 2025-06-29 #springOneProject 📅 2025-06-30 
+- [ ] test initial front and backend project  ➕ 2025-06-29 #springOneProject 📅 2025-07-01
 
 - [ ] set git submodule ➕ 2025-06-29  📅 2025-07-01 #springOneProject 
 
-- [ ] set postgreSQL and connect to Spring Project ➕ 2025-06-29 #springOneProject 📅 2025-07-01 
+- [ ] set postgreSQL and connect to Spring Project ➕ 2025-06-29 #springOneProject 📅 2025-07-02 
 
-- [ ] test front - backend - database ➕ 2025-06-29 #springOneProject  📅 2025-07-01 
+- [ ] test front - backend - database ➕ 2025-06-29 #springOneProject  📅 2025-07-02
 
 - [ ] test front page developemt method : readdy.ai -> Puck -> Vite ➕ 2025-06-29 #springOneProject 📅 2025-07-06 
 

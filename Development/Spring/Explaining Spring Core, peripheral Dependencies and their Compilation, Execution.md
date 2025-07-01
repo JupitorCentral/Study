@@ -1,4 +1,4 @@
-- [ ] Explaining Spring Core, peripheral Dependencies and their Compilation, Execution ➕ 2025-06-25 
+- [x] Explaining Spring Core, peripheral Dependencies and their Compilation, Execution ➕ 2025-06-25 ✅ 2025-07-01
 
 
 ### How can React be combined with TypeScript, and is my understanding of the compilation process correct?

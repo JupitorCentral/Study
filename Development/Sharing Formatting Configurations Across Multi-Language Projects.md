@@ -1,4 +1,4 @@
-- [ ] Sharing Formatting Configurations Across Multi-Language Projects ➕ 2025-06-26 
+- [x] Sharing Formatting Configurations Across Multi-Language Projects ➕ 2025-06-26 ✅ 2025-07-01
 
 ### How can I share formatting across developers for a React and Spring project using the Zed editor?
 

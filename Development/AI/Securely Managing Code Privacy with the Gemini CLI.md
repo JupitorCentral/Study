@@ -1,4 +1,4 @@
-- [ ] Securely Managing Code Privacy with the Gemini CLI ➕ 2025-06-26 
+- [x] Securely Managing Code Privacy with the Gemini CLI ➕ 2025-06-26 ✅ 2025-07-01
 
 ### How can I use the Gemini CLI, and does using it with a Gemini Pro subscription protect my code from being used to train AI models?
 

@@ -1,4 +1,4 @@
-- [ ] An In-depth Look at Claude Code _ Features, Pricing, and Usage (2025-06-26) ➕ 2025-06-26 
+- [x] An In-depth Look at Claude Code _ Features, Pricing, and Usage (2025-06-26) ➕ 2025-06-26 ✅ 2025-07-01
 
 
 ### What is Claude Code's "Plan Mode"?

@@ -1,4 +1,4 @@
-- [ ] Understanding React with TypeScript ➕ 2025-06-26 
+- [x] Understanding React with TypeScript ➕ 2025-06-26 ✅ 2025-07-01
 
 ### How can I use TypeScript in React? Provide some examples.
 

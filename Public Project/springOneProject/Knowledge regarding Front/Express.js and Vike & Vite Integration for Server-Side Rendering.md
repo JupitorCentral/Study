@@ -33,9 +33,7 @@ When Vike is integrated with Express.js for server-side rendering, it operates w
 - The middleware stack processes each request, with each function having access to the request (`req`), response (`res`), and `next` objects.
     
 
-JavaScript
-
-```
+```js
 // Example of how Vike integrates with Express
 app.use('*', async (req, res, next) => {
   // Vike rendering happens here within the same process
@@ -57,9 +55,7 @@ Yes, that is correct. When Express.js runs with Vite in middleware mode, the Vit
 
 You create a `ViteDevServer` instance that becomes a part of your Express.js application.
 
-JavaScript
-
-```
+```js
 const vite = await createViteServer({
   server: { middlewareMode: true },
   appType: 'custom'
@@ -68,9 +64,7 @@ const vite = await createViteServer({
 
 This `vite` variable is an instance of `ViteDevServer` running inside your Express.js process. It's integrated using:
 
-JavaScript
-
-```
+```js
 app.use(vite.middlewares);
 ```
 
