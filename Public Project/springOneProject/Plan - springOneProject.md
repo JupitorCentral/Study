@@ -34,6 +34,10 @@
       - maybe App.tsx will be removed
         [[Front Entry Points, Necessity of main.tsx when using SSR]]
 
+- [x] Core of Spring #springOneProject ➕ 2025-07-01 📅 2025-07-01 ✅ 2025-07-02
+      [[Understanding the Core of the Spring Framework]]
+      [[Spring Boot Architecture - Processes, Threads, and Application Contexts]]
+
 - [ ] test initial front and backend project  ➕ 2025-06-29 #springOneProject 📅 2025-07-01
 
 - [ ] set git submodule ➕ 2025-06-29  📅 2025-07-01 #springOneProject 

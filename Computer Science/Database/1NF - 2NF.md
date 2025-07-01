@@ -19,11 +19,11 @@ Let's imagine a simple table for tracking customer orders that is **not** in 1NF
 
 **Before 1NF (Violates Atomicity)**
 
-|OrderID|CustomerName|Products|
-|:--|:--|:--|
-|101|Alice|`Laptop, Mouse`|
-|102|Bob|`Keyboard`|
-|103|Charlie|`Monitor, Webcam, Keyboard`|
+| OrderID | CustomerName | Products                    |
+| :------ | :----------- | :-------------------------- |
+| 101     | Alice        | `Laptop, Mouse`             |
+| 102     | Bob          | `Keyboard`                  |
+| 103     | Charlie      | `Monitor, Webcam, Keyboard` |
 
 Export to Sheets
 
