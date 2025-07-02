@@ -38,13 +38,15 @@
       [[Understanding the Core of the Spring Framework]]
       [[Spring Boot Architecture - Processes, Threads, and Application Contexts]]
 
-- [ ] test initial front and backend project  ➕ 2025-06-29 #springOneProject 📅 2025-07-01
+- [x] test initial front webserver with SSR #springOneProject ➕ 2025-07-02 📅 2025-07-02 ✅ 2025-07-02
 
-- [ ] set git submodule ➕ 2025-06-29  📅 2025-07-01 #springOneProject 
+- [ ] test backend project, api with front  ➕ 2025-06-29 #springOneProject 📅 2025-07-03
 
-- [ ] set postgreSQL and connect to Spring Project ➕ 2025-06-29 #springOneProject 📅 2025-07-02 
+- [ ] set git submodule ➕ 2025-06-29  📅 2025-07-03 #springOneProject 
 
-- [ ] test front - backend - database ➕ 2025-06-29 #springOneProject  📅 2025-07-02
+- [ ] set postgreSQL and connect to Spring Project ➕ 2025-06-29 #springOneProject 📅 2025-07-03 
+
+- [ ] test front - backend - database ➕ 2025-06-29 #springOneProject  📅 2025-07-03
 
 - [ ] test front page developemt method : readdy.ai -> Puck -> Vite ➕ 2025-06-29 #springOneProject 📅 2025-07-06 
 
