@@ -42,7 +42,7 @@ Spring Core promotes **loose coupling** through dependency injection. This makes
 
 ### The Relationship between IoC and Beans
 
-#### ### Are beans the result of IoC?
+#### Are beans the result of IoC?
 
 Yes, **beans are indeed the result of IoC (Inversion of Control)** in Spring. A bean is an object that has been instantiated, assembled, and otherwise managed by the Spring IoC container. Without the container, they would be simple Java objects (POJOs).
 
@@ -80,7 +80,7 @@ In essence, beans are the tangible outcome of applying the IoC principle—they 
 
 ### Understanding Loose Coupling in Spring
 
-#### ### The phrase "Spring Core promotes loose coupling through dependency injection" is confusing. What exactly is loose coupling?
+#### The phrase "Spring Core promotes loose coupling through dependency injection" is confusing. What exactly is loose coupling?
 
 **Loose coupling** is a design principle where components in a system have minimal dependencies on and knowledge of each other. This allows them to be changed independently without affecting other parts of the system.
 
@@ -250,7 +250,7 @@ The key to loose coupling is that `OrderService`'s code is completely decoupled 
 
 ### Confirmation on Service Definition and Selection
 
-#### ### So, we define services in separate files, let Spring know about them, and then choose which one to use with tools like `@Qualifier` and `@Primary`. Am I right?
+#### So, we define services in separate files, let Spring know about them, and then choose which one to use with tools like `@Qualifier` and `@Primary`. Am I right?
 
 Yes, you're absolutely right!
 
@@ -269,7 +269,7 @@ This separation keeps your business logic clean and gives you flexible control o
 
 ### Understanding the ApplicationContext
 
-#### ### What is `ApplicationContext`? Is there only one per server instance?
+#### What is `ApplicationContext`? Is there only one per server instance?
 
 The `ApplicationContext` is the central interface within Spring for providing application configuration. It is Spring's advanced IoC container, responsible for instantiating, configuring, assembling, and managing the entire lifecycle of beans.
 
@@ -373,7 +373,7 @@ This creates a seamless integration where Tomcat handles the low-level HTTP prot
 
 ### Quick Definitions
 
-#### ### What's an 'HTTP server'? And what does 'bootstrapped' mean?
+#### What's an 'HTTP server'? And what does 'bootstrapped' mean?
 
 #### HTTP Server
 
@@ -387,7 +387,7 @@ An **HTTP server** is software that understands web addresses (URLs) and the HTT
 
 ### Spring Web Application Architecture Diagrams
 
-#### ### Could you show the architecture you described, from Tomcat to Spring components, in a textual format?
+#### Could you show the architecture you described, from Tomcat to Spring components, in a textual format?
 
 Certainly. Here are a few ways to visualize the architecture.
 
@@ -458,7 +458,7 @@ HTTP Response ← Embedded Tomcat ← Spring Boot ← ApplicationContext ← Res
 
 ### Component Roles, Hierarchy, and Threading
 
-#### ### In the hierarchy `DispatcherServlet → Servlet ApplicationContext → Controller Bean → Root ApplicationContext`, what is the role of each component and why is it structured this way? Also, how does threading work? Is it one process with multiple threads per request?
+#### In the hierarchy `DispatcherServlet → Servlet ApplicationContext → Controller Bean → Root ApplicationContext`, what is the role of each component and why is it structured this way? Also, how does threading work? Is it one process with multiple threads per request?
 
 You are correct about the threading model. Here is a breakdown of the roles, the reason for the hierarchy, and the process architecture.
 

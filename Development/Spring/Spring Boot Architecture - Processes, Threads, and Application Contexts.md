@@ -168,8 +168,6 @@ This diagram illustrates how the components are organized within a single Java V
 
 This diagram shows how concurrent requests are handled by the thread pool.
 
-Plaintext
-
 ```
 HTTP Request 1 ──┐
 HTTP Request 2 ──┼─→ Tomcat HTTP Connector (Port 8080)
@@ -370,3 +368,10 @@ However, running multiple instances generally provides better **fault tolerance*
     - **Configuration**: Each instance must run on a different port.
         
     - **Benefits**: Provides superior fault tolerance and resource isolation compared to a single, larger instance.
+
+---
+---
+
+
+
+
