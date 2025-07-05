@@ -40,9 +40,9 @@
 
 - [x] test initial front webserver with SSR #springOneProject ➕ 2025-07-02 📅 2025-07-02 ✅ 2025-07-02
 
-- [ ] test backend project, api with front  ➕ 2025-06-29 #springOneProject 📅 2025-07-03
+- [x] test backend project, api with front #springOneProject ➕ 2025-06-29 📅 2025-07-03 ✅ 2025-07-04
 
-- [ ] set git submodule ➕ 2025-06-29  📅 2025-07-03 #springOneProject 
+- [ ] set git submodule (springOne / springOnefront + sprintOneBackend) ➕ 2025-06-29  📅 2025-07-03 #springOneProject 
 
 - [ ] set postgreSQL and connect to Spring Project ➕ 2025-06-29 #springOneProject 📅 2025-07-03 
 
@@ -50,9 +50,9 @@
 
 - [ ] test front page developemt method : readdy.ai -> Puck -> Vite ➕ 2025-06-29 #springOneProject 📅 2025-07-06 
 
-- [ ] solve Perplexity mcp connection failed problem on Gemini CLI ➕ 2025-06-29 #springOneProject 📅 2025-07-06 
+- [x] solve Perplexity mcp connection failed problem on Gemini CLI #springOneProject ➕ 2025-06-29 📅 2025-07-06 ✅ 2025-07-04
 
-- [ ] try SPA after SSR ➕ 2025-06-30 📅 2025-07-06 
+- [x] try SPA after SSR ➕ 2025-06-30 📅 2025-07-06 ✅ 2025-07-04
 
 
 
