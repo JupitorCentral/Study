@@ -1,6 +1,6 @@
 #springOneProject 
 
-### 2025-06 5th week (07 First Week)
+### 2025-06 5th week (2025-07 1st Week)
 
 - [x] formmating on zed ⏫ ➕ 2025-06-25 📅 2025-06-26 ✅ 2025-06-29 #springOneProject 
 
@@ -38,21 +38,44 @@
       [[Understanding the Core of the Spring Framework]]
       [[Spring Boot Architecture - Processes, Threads, and Application Contexts]]
 
-- [x] test initial front webserver with SSR #springOneProject ➕ 2025-07-02 📅 2025-07-02 ✅ 2025-07-02
+	- [x] test initial front webserver with SSR #springOneProject ➕ 2025-07-02 📅 2025-07-02 ✅ 2025-07-02
 
 - [x] test backend project, api with front #springOneProject ➕ 2025-06-29 📅 2025-07-03 ✅ 2025-07-04
 
-- [ ] set git submodule (springOne / springOnefront + sprintOneBackend) ➕ 2025-06-29  📅 2025-07-03 #springOneProject 
 
-- [ ] set postgreSQL and connect to Spring Project ➕ 2025-06-29 #springOneProject 📅 2025-07-03 
+### 2025-07 2th week 
+
+- [x] set git submodule (springOne / springOnefront + sprintOneBackend) #springOneProject ➕ 2025-06-29 📅 2025-07-03 ✅ 2025-07-06
+		
+- [x] set postgreSQL and connect to Spring Project #springOneProject ➕ 2025-06-29 📅 2025-07-03 ✅ 2025-07-06
+	- [x] verify PostgreSQL installation and service status ✅ 2025-07-06
+	- [x] check PostgreSQL is running on default port 5432 ✅ 2025-07-06
+	- [x] create database for springOneProject ✅ 2025-07-06
+	- [x] create database user with appropriate permissions ✅ 2025-07-06
+	- [x] configure Spring Boot application.properties/application.yml with database connection settings ✅ 2025-07-06
+	- [x] add PostgreSQL driver dependency to pom.xml/build.gradle ✅ 2025-07-06
+	- [ ] using MCP server - install MCP server related to postgresql to claude code
+		- [x] decided to use Postgres MCP Pro (https://github.com/crystaldba/postgres-mcp) ✅ 2025-07-06
+		- [x] update python version to 3.13 (stable version) using brew ✅ 2025-07-06
+			- [x] [[2025-07-06 Resolving Python and PostgreSQL Issues After System-Wide Updates]] ✅ 2025-07-06
+			- [x] create virtual environment for mcp ✅ 2025-07-06
+		- [x] set claude code configuration with path of python venv created above (add mcpserver setting to ~/.claude.json) ✅ 2025-07-06
+	- [x] using mcp - create simple Entity class for testing ✅ 2025-07-06
+	- [x] create Repository interface for the test entity ✅ 2025-07-06
+	- [x] create REST controller to test database operations ✅ 2025-07-06
+	- [x] test database connection with basic CRUD operations ✅ 2025-07-06
+	- [x] verify connection pooling is working properly ✅ 2025-07-06
+	- [ ] test transaction management
 
 - [ ] test front - backend - database ➕ 2025-06-29 #springOneProject  📅 2025-07-03
 
-- [ ] test front page developemt method : readdy.ai -> Puck -> Vite ➕ 2025-06-29 #springOneProject 📅 2025-07-06 
+- [ ] test front page developemt method : readdy.ai -> Puck or Figma ➕ 2025-06-29 #springOneProject 📅 2025-07-06 
 
 - [x] solve Perplexity mcp connection failed problem on Gemini CLI #springOneProject ➕ 2025-06-29 📅 2025-07-06 ✅ 2025-07-04
 
 - [x] try SPA after SSR ➕ 2025-06-30 📅 2025-07-06 ✅ 2025-07-04
+
+- [ ] Need a understanding how front tech stack is working (from Tailwind CSS) ➕ 2025-07-06 📅 2025-07-08 
 
 
 

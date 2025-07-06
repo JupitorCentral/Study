@@ -391,7 +391,7 @@ An **HTTP server** is software that understands web addresses (URLs) and the HTT
 
 Certainly. Here are a few ways to visualize the architecture.
 
-#### Standard Request Flow
+#### Standard Request Flow (Runtime)
 
 This shows the path of a single request through the layers.
 
@@ -413,6 +413,11 @@ HTTP Request → Tomcat Server → DispatcherServlet → ApplicationContext (IoC
 																			↑
 																	 Query Results
 ```
+
+
+More precisely, it's: `DispatcherServlet` **uses** `ApplicationContext` **to retrieve** `Controller Bean`
+
+The DispatcherServlet doesn't "go through" the ApplicationContext as a processing step - it **queries** the ApplicationContext to find the appropriate controller bean to handle the request.
 
 #### View with Hierarchical ApplicationContexts
 
