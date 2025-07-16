@@ -1,4 +1,4 @@
-- [ ] What is React ➕ 2025-06-29  📅 2025-06-30 
+- [x] What is React ➕ 2025-06-29 📅 2025-06-30 ✅ 2025-07-13
 
 
 ## A Glimpse into a Simple React SPA Project

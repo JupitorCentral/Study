@@ -1,4 +1,4 @@
-- [ ] Understanding the Core of the Spring Framework ➕ 2025-07-01 🔺 📅 2025-07-08 
+- [x] Understanding the Core of the Spring Framework 🔺 ➕ 2025-07-01 📅 2025-07-08 ✅ 2025-07-07
 
 ### Understanding the Core of the Spring Framework
 

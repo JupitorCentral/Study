@@ -1,4 +1,4 @@
-- [ ] Spring Boot Architecture - Processes, Threads, and Application Contexts ➕ 2025-07-02 📅 2025-07-06 ⏫ 
+- [x] Spring Boot Architecture - Processes, Threads, and Application Contexts ⏫ ➕ 2025-07-02 📅 2025-07-06 ✅ 2025-07-13
 
 ### In the standard Spring request flow, are concurrent user requests handled by a single process, and at what point are threads separated?
 

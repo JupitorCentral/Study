@@ -67,7 +67,7 @@
 	- [x] verify connection pooling is working properly ✅ 2025-07-06
 	- [ ] test transaction management
 
-- [ ] test front - backend - database ➕ 2025-06-29 #springOneProject  📅 2025-07-03
+- [x] test front - backend - database #springOneProject ➕ 2025-06-29 📅 2025-07-03 ✅ 2025-07-13
 
 - [ ] test front page developemt method : readdy.ai -> Puck or Figma ➕ 2025-06-29 #springOneProject 📅 2025-07-06 
 
