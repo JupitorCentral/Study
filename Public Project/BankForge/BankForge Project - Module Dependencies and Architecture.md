@@ -258,3 +258,4 @@ This simplified diagram focuses purely on the Spring Boot modules within the roo
 - **Query Flow**: `Event Store` → `Query Service`
     
 - **Universal Dependencies**: All modules rely on `shared-common` for common code and `auth-service` for security.
+

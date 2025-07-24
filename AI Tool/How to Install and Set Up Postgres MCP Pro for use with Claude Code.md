@@ -1,5 +1,5 @@
 
-- [ ] How to Install and Set Up Postgres MCP Pro for use with Claude Code ➕ 2025-07-15 
+- [x] How to Install and Set Up Postgres MCP Pro for use with Claude Code ➕ 2025-07-15 ✅ 2025-07-22
 
 ### Prerequisites
 
