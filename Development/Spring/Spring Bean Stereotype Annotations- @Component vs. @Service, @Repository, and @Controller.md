@@ -1,4 +1,4 @@
-- [ ] Spring Bean Stereotype Annotations- @Component vs. @Service, @Repository, and @Controller ➕ 2025-07-22 
+- [x] Spring Bean Stereotype Annotations- @Component vs. @Service, @Repository, and @Controller ➕ 2025-07-22 ✅ 2025-07-24
 
 
 
