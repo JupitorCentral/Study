@@ -2,7 +2,7 @@
 #web 
 
 
-- [ ] RESTful API ➕ 2025-06-14 
+- [x] RESTful API ➕ 2025-06-14 ✅ 2025-07-29
 
 
 A RESTful API is an architectural style for designing networked applications. It stands for **REpresentational State Transfer** and provides a set of rules and constraints for creating web services that are simple, scalable, and reliable. Think of it as a translator that allows two different software applications to communicate with each other over the internet.
@@ -52,6 +52,7 @@ RESTful APIs use standard HTTP methods to perform actions on resources:
 - **GET:** Retrieves a representation of a resource.
     
 - **POST:** Creates a new resource.
+
 - **PUT:** Updates an existing resource.
     
 - **DELETE:** Removes a resource.
