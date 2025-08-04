@@ -1,4 +1,4 @@
-- [ ] Understanding Kotlin's Companion Objects vs. Java's Static Members ➕ 2025-08-03 
+- [x] Understanding Kotlin's Companion Objects vs. Java's Static Members ➕ 2025-08-03 ✅ 2025-08-04
 
 ### What is the 'companion' keyword in Kotlin?
 

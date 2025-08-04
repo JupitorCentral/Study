@@ -1,4 +1,4 @@
-- [ ] Understanding DNS - Resolvers, Servers, and the Hierarchy ➕ 2025-08-03 
+- [x] Understanding DNS - Resolvers, Servers, and the Hierarchy ➕ 2025-08-03 ✅ 2025-08-04
 
 ### What is DNS?
 
