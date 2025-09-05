@@ -69,13 +69,13 @@
 
 - [x] test front - backend - database #springOneProject ➕ 2025-06-29 📅 2025-07-03 ✅ 2025-07-13
 
-- [ ] test front page developemt method : readdy.ai -> Puck or Figma ➕ 2025-06-29 #springOneProject 📅 2025-07-06 
+- [x] test front page developemt method : readdy.ai -> Puck or Figma #springOneProject ➕ 2025-06-29 📅 2025-07-06 ✅ 2025-09-05
 
 - [x] solve Perplexity mcp connection failed problem on Gemini CLI #springOneProject ➕ 2025-06-29 📅 2025-07-06 ✅ 2025-07-04
 
 - [x] try SPA after SSR ➕ 2025-06-30 📅 2025-07-06 ✅ 2025-07-04
 
-- [ ] Need a understanding how front tech stack is working (from Tailwind CSS) ➕ 2025-07-06 📅 2025-07-08 
+- [x] Need a understanding how front tech stack is working (from Tailwind CSS) ➕ 2025-07-06 📅 2025-07-08 ✅ 2025-09-05
 
 
 

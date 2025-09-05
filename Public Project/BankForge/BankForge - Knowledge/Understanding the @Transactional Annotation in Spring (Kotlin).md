@@ -1,4 +1,4 @@
-- [ ] Understanding the `@Transactional` Annotation in Spring (Kotlin) ➕ 2025-07-27 📅 2025-07-27 
+- [x] Understanding the `@Transactional` Annotation in Spring (Kotlin) ➕ 2025-07-27 📅 2025-07-27 ✅ 2025-09-05
 
 ### What does the `@Transactional` annotation do, especially concerning exceptions and rollbacks?
 

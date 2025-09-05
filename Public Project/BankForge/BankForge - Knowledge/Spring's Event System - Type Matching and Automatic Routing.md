@@ -1,4 +1,4 @@
-- [ ] Spring's Event System - Type Matching and Automatic Routing ➕ 2025-07-27 📅 2025-07-27 ⏫ 
+- [x] Spring's Event System - Type Matching and Automatic Routing ⏫ ➕ 2025-07-27 📅 2025-07-27 ✅ 2025-09-05
 
 ### Can you explain in detail how Spring's event system uses type matching to automatically route events to listeners?
 

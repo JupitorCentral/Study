@@ -1,4 +1,4 @@
-- [ ] Money Transfer Transaction Flow with CQRS and Event Sourcing ➕ 2025-07-27 📅 2025-07-27 
+- [x] Money Transfer Transaction Flow with CQRS and Event Sourcing ➕ 2025-07-27 📅 2025-07-27 ✅ 2025-09-05
 
 ### Show me example codes of a money transfer transaction including all related modules, using JPA, an event sourcing module, and other relevant technologies.
 

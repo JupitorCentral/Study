@@ -1,4 +1,4 @@
-- [ ] Understanding CQRS and its Relationship with Event-Driven Architecture ➕ 2025-07-26 📅 2025-07-26 
+- [x] Understanding CQRS and its Relationship with Event-Driven Architecture ➕ 2025-07-26 📅 2025-07-26 ✅ 2025-09-05
 
 ### What is an example of a transaction request return in CQRS, and what is the role of the @Service layer in this model?
 

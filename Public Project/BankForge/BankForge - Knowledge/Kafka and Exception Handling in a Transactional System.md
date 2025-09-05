@@ -1,4 +1,4 @@
-- [ ] Kafka and Exception Handling in a Transactional System ➕ 2025-07-27 📅 2025-07-27 
+- [x] Kafka and Exception Handling in a Transactional System ➕ 2025-07-27 📅 2025-07-27 ✅ 2025-09-05
 
 ### When a transactional method throws an exception, what happens to the Kafka send? Should I use a synchronous or asynchronous send?
 

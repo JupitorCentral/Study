@@ -1,4 +1,4 @@
-- [ ] Kafka's Role in a Spring Multimodule Banking Application ➕ 2025-07-27 📅 2025-07-27 
+- [x] Kafka's Role in a Spring Multimodule Banking Application ➕ 2025-07-27 📅 2025-07-27 ✅ 2025-09-05
 
 ### [kafka and multimodules] Is kafka used for load balancing between other modules inside a spring app ? Or, between microservices, or spriing <-> db ?
 

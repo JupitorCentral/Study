@@ -1,4 +1,4 @@
-- [ ] Understanding CQRS - From Core Concepts to Implementation with Spring and Kafka ➕ 2025-07-27 📅 2025-07-27 
+- [x] Understanding CQRS - From Core Concepts to Implementation with Spring and Kafka ➕ 2025-07-27 📅 2025-07-27 ✅ 2025-09-05
 
 ### I can't understand what CQRS is. Could you explain it compared to a RESTful API with an MVC pattern?
 

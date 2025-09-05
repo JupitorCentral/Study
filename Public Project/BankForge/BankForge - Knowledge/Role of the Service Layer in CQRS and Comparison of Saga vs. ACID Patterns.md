@@ -1,4 +1,4 @@
-- [ ] Role of the Service Layer in CQRS and Comparison of Saga vs. ACID Patterns ➕ 2025-07-27 📅 2025-07-27 
+- [x] Role of the Service Layer in CQRS and Comparison of Saga vs. ACID Patterns ➕ 2025-07-27 📅 2025-07-27 ✅ 2025-09-05
 
 ### In a CQRS architecture, what is the role of the @Service layer besides triggering events?
 
