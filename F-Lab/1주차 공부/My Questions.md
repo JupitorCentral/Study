@@ -30,3 +30,14 @@ statement 실행시, 값이 변하는 시점은 같다.
 변수 명이 다른데, 과연 같은 객체라고 할 수 있는지.
 String s1 -> 여기서 s1 이라는 변수는 포인터라고 할 수 있는 것이 아닌지.
 확인이 필요함. 
+
+
+#### 왜 StringBuffer 는 Thread safe 하고, StringBuilder 는 그렇지 않은가 ?
+
+
+
+
+#### return type 이 interface 인데 출력하는 경우
+
+[[Spaces/Study/F-Lab/1주차 공부/250909.md#^3021fc|problem]]
+
