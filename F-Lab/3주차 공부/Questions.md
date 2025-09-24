@@ -1,7 +1,15 @@
 
 # TO DO & Questions
 
+- [ ] Map.entrySet -> Set.stream -> F-bounded Polymorphism or Recursive Generics  ➕ 2025-09-24 📅 2025-09-25 
+      -> Function Class -> @FunctionalInterface -> Reflection 
+
 - [ ] 클래스가 ThreadSafe 하다는게 무슨 의미인가 ? ➕ 2025-09-21 📅 2025-09-21 
+
+- [ ] 캐싱 스탬피드란 ? ➕ 2025-09-19 📅 2025-09-23 
+
+- [ ] 캐시 expired 에 대한 고민 ➕ 2025-09-19 📅 2025-09-23 
+
 
 
 
@@ -71,10 +79,6 @@
 - [ ] 내가 답한 캐싱 사용패턴 3가지에 대한 첨언 ➕ 2025-09-19 
       -> 요새는 사실 다 어플리케이션에서 캐싱 관리를 한다. 캐싱 시스템을 따로 두지 않고.
       -> 시스템을 따로 관리하는게 오히려 더 공수가 드는 상황.
-
-- [ ] 캐싱 스탬피드란 ? ➕ 2025-09-19 📅 2025-09-23 
-
-- [ ] 캐시 expired 에 대한 고민 ➕ 2025-09-19 📅 2025-09-23 
 
 - [ ] GC ➕ 2025-09-19 
       시리얼 GC, Throughput GC (aka 패러랠 GC) CMS GC 이런 애들은 
