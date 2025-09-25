@@ -1,8 +1,6 @@
 
 # TO DO & Questions
 
-- [ ] Map.entrySet -> Set.stream -> F-bounded Polymorphism or Recursive Generics  ➕ 2025-09-24 📅 2025-09-25 
-      -> Function Class -> @FunctionalInterface -> Reflection 
 
 - [x] 클래스가 ThreadSafe 하다는게 무슨 의미인가 ? ➕ 2025-09-21 📅 2025-09-21 ✅ 2025-09-25
 
@@ -12,6 +10,9 @@
 
 - [ ] 논문 - Optimal Probabilistic Cache Stampede Prevention ➕ 2025-09-25
       아직 다 이해를 못함
+
+- [ ] Map.entrySet -> Set.stream -> F-bounded Polymorphism or Recursive Generics  ➕ 2025-09-24 📅 2025-09-25 
+      -> Function Class -> @FunctionalInterface -> Reflection 
 
 
 
