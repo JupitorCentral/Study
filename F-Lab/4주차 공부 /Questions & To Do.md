@@ -2,8 +2,18 @@
 
 - [x] 3주차 멘토링 내용 정리 ➕ 2025-09-26 📅 2025-09-26 ✅ 2025-09-26
 
+- [ ] Java JIT, HotSpot, how class is loading, ➕ 2025-09-27 📅 2025-09-27 
+      what happens if a java file in another package is imported and compiled,
+      how jvm does handle all of these, 
+      where these contents of class file is located on memory
+
+- [ ] process of compiling c \/ cpp ➕ 2025-09-27 📅 2025-09-27 
+
+
 - [ ] [[250926 neetcode three-integer-sum]] 답지에서 서로 다른 방법 모두 분석해보기 ➕ 2025-09-26 📅 2025-09-27 
       -> 블로그에 써도 좋을 것 같다.
+
+- [ ] Java Reflection ➕ 2025-09-27 📅 2025-09-28 
 
 - [ ] 캐싱 스탬피드에 관한 내용을 블로그에 작성하기 ➕ 2025-09-26 📅 2025-09-28 
  ^1a0ae1
