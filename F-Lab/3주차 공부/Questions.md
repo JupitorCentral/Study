@@ -12,7 +12,7 @@
       [[Questions & To Do#^1a0ae1]]
 
 - [x] Map.entrySet -> Set.stream -> F-bounded Polymorphism or Recursive Generics ➕ 2025-09-24 ✅ 2025-09-26
-      -> Function Class -> @FunctionalInterface -> Reflection 
+      -> Function Class -> @FunctionalInterface
       [[Questions & To Do#^9c4503]]
 
 - [x] Kafka, Event sourcing, CQRS ✅ 2025-09-26
