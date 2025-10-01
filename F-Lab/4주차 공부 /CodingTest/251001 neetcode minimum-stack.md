@@ -204,3 +204,62 @@ top -> 음수면, 최솟값이 업데이트 된 것. 즉, min 이 가장 위에 
 
 
 
+하나의 stack 방법에서 int 에 대한 overflow 가 발생.
+long 으로 바꾸어야 한다.
+
+어떤 부분에서 overflow 가 발생하는걸까?
+
+
+```java
+public class MinStack {  
+  
+    Stack<Long> st;  
+    long min;  
+  
+    public MinStack() {  
+        st = new Stack<>();  
+    }  
+      
+    public void push(int val) {  
+        if (st.isEmpty()) {  
+            st.add(0L);        // you shouldn't add val itself for the top - which is 'peak + min'  
+            min = val;  
+        } else {  
+            st.add(val - (long)min);     // saving previous min value    
+                                // min = -2147483648, val = 2147483647, if int, overflow.  
+            if (min > val) min = val;  
+        }  
+    }  
+      
+    public void pop() {  
+        long top = st.peek();  
+        if (top < 0) {  // min is updated  
+             // top = value (current min) - previous min           
+             // return value = top + previous min            
+             // previous min = current min - top            
+             // return value = top + (current min - top) = current min;            min = min - top;        
+             // min = 2147483647, top = min = -2147483648  -> if int, overflow  
+        }  
+        // As we don't have to return peek value, only update min.  
+        st.pop();  
+    }  
+      
+    public int top() {  
+        long peek = st.peek();  
+  
+        if (peek > 0) {  // case where previous value doesn't change  
+            return (int)(peek + min);  
+        } else {  
+            return (int)min;  
+        }  
+    }  
+      
+    public int getMin() {  
+        return (int)min;  
+    }  
+}
+```
+
+
+min = -2^31, val = 2^31 이면 2^32 로 int  를 넘어버린다.
+(push -> val - min)

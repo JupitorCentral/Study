@@ -24,7 +24,7 @@
 - [x] generic ➕ 2025-09-26 📅 2025-09-30 ✅ 2025-09-30
       [[250913#^45e137]]
 
-- [ ] neetcode buy and cell crypto ➕ 2025-10-01 📅 2025-10-01 
+- [x] neetcode buy and cell crypto ➕ 2025-10-01 📅 2025-10-01 ✅ 2025-10-02
       https://neetcode.io/problems/buy-and-sell-crypto?list=neetcode150
 
 - [ ] collections -> ArrayList, HashMap (HashSet 과의 연관성) ➕ 2025-09-26 📅 2025-09-30 
