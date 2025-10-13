@@ -9,14 +9,14 @@
 
 - [x] 논문 - Optimal Probabilistic Cache Stampede Prevention ➕ 2025-09-25 ✅ 2025-09-26
       아직 다 이해를 못함 -> 이 논문을 이해하려면 얼마나 많은 시간이 걸릴지. 비효율적이지 않나...
-      [[Questions & To Do#^1a0ae1]]
+      [[Spaces/Study/F-Lab/5주차 공부/Questions & To Do#^1a0ae1]]
 
 - [x] Map.entrySet -> Set.stream -> F-bounded Polymorphism or Recursive Generics ➕ 2025-09-24 ✅ 2025-09-26
       -> Function Class -> @FunctionalInterface
-      [[Questions & To Do#^9c4503]]
+      [[Spaces/Study/F-Lab/5주차 공부/Questions & To Do#^9c4503]]
 
 - [x] Kafka, Event sourcing, CQRS ✅ 2025-09-26
-      [[Questions & To Do#^d71455]]
+      [[Spaces/Study/F-Lab/5주차 공부/Questions & To Do#^d71455]]
 
 
 
@@ -33,14 +33,14 @@
       -> 요새는 다 세퍼레이트 체이닝을 쓴다고 함
       -> 세퍼레이 체이닝 8개 까지는 링크드 리스트, 넘어가면 레드 블랙트리
       -> 그래서 시간복잡도는 ?
-      [[Questions & To Do#^361a6e]]
+      [[Spaces/Study/F-Lab/5주차 공부/Questions & To Do#^361a6e]]
       
 	- [x] 해쉬 리밸런싱 ✅ 2025-09-26
 	      -> 셋을 좋아하시는 멘토님
 	      -> 8개가 넘어가면 셋을 쓰는게 훨씬 성능을 더 잘 낼 수 있다.
 	      -> 순서를 유지하는 셋, 레드블랙트리로 균형을 맞춰서 정렬을 해주는 트리
 	      -> 알맞은 셋을 필요한 로직에 맞게 쓰는게 중요
-	      [[Questions & To Do#^efc4b3]]
+	      [[Spaces/Study/F-Lab/5주차 공부/Questions & To Do#^efc4b3]]
 
 - [x] 멘토님이 생각한 캐싱 답변의 수준 ➕ 2025-09-19 ✅ 2025-09-26
       어떤 정보를 읽어서 유저에게 반환을 해주는게 우리의 목표
@@ -69,7 +69,7 @@
 - [x] 내가 답한 캐싱 사용패턴 3가지에 대한 첨언 ➕ 2025-09-19 ✅ 2025-09-26
       -> 요새는 사실 다 어플리케이션에서 캐싱 관리를 한다. 캐싱 시스템을 따로 두지 않고.
       -> 시스템을 따로 관리하는게 오히려 더 공수가 드는 상황.
-      [[Questions & To Do#^5e25b7]]
+      [[Spaces/Study/F-Lab/5주차 공부/Questions & To Do#^5e25b7]]
 
 - [x] GC ➕ 2025-09-19 ✅ 2025-09-25
       시리얼 GC, Throughput GC (aka 패러랠 GC) CMS GC 이런 애들은 
@@ -90,7 +90,7 @@
 
 
 - [x] List\<Integer> 에 null 을 추가 -> 박싱, 언박싱 ➕ 2025-09-19 ✅ 2025-09-26
-      [[Questions & To Do#^a07aa7]]
+      [[Spaces/Study/F-Lab/5주차 공부/Questions & To Do#^a07aa7]]
 
 - [x] 부동 소수점에 대해 설명이 부족함 ➕ 2025-09-19 ✅ 2025-09-26
       부동소수점을 얘기하려면 음수를 얘기해야 한다.
@@ -101,7 +101,7 @@
       왜냐하면 소수점을 이진수로 바꾸는 방법때문에 그렇다. 
       그리고 무한소수, 그리고 2로 나누어 떨어지는 수는 문제가 발생하는데
       이는 컴퓨터의 구조적 한계 때문.
-      [[Questions & To Do#^2470c3]]
+      [[Spaces/Study/F-Lab/5주차 공부/Questions & To Do#^2470c3]]
 
 
 - [x] 프로세스와 쓰레드의 차이에 대해 더 답변을 깎아야 한다 ➕ 2025-09-19 ✅ 2025-09-26
@@ -111,7 +111,7 @@
       그래서 락이 존재하는 것이기도 하고.
       이런 것들 위주로 설명을 해주는게 좋다.
       왜 그렇냐면, 구현이 바뀌기 때문.
-      [[Questions & To Do#^9b0391]]
+      [[Spaces/Study/F-Lab/5주차 공부/Questions & To Do#^9b0391]]
 
 
 
