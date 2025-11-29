@@ -1,0 +1,282 @@
+---
+tags:
+  - Java/Basics
+---
+
+#### hashCode -> 왜 31 일까 ?
+
+```java
+public class User {  
+  
+    private String name;  
+    private String address;  
+    private String email;  
+  
+  
+    @Override  
+    public boolean equals(Object o) {  
+        if (o == null || getClass() != o.getClass()) return false;  
+  
+        User user = (User) o;  
+        return Objects.equals(name, user.name) && Objects.equals(address, user.address) && Objects.equals(email, user.email);  
+    }  
+  
+    @Override  
+    public int hashCode() {  
+        int result = Objects.hashCode(name);  
+        result = 31 * result + Objects.hashCode(address);  
+        result = 31 * result + Objects.hashCode(email);  
+        return result;  
+    }  
+}
+```
+
+거기에 31이라는 숫자가 나온다.
+왜 '31' 일까 ?
+
+힌트 -> 31 = 11111
+
+---
+
+그리고 String 의 hashCode 를 처리할때, String 의 COMPACT_STRINGS 가 UTF16 일 경우 
+(문자열 압축이 설정되어 있지 않으면, 문자열은 기본적으로 UTF16 으로 인코딩됨.)
+
+String.hashCode -> StringUTF16.hashCode 
+-> ArraySupport.hashCodeOfUTF16 
+```java
+public static int hashCodeOfUTF16(byte[] a, int fromIndex, int length, int initialValue) {  
+    return switch (length) {  
+        case 0 -> initialValue;  
+        case 1 -> 31 * initialValue + JLA.getUTF16Char(a, fromIndex);  
+        default -> vectorizedHashCode(a, fromIndex, length, initialValue, T_CHAR);  
+    };  
+}
+```
+
+-> ArraySupport.vectorizedHashCode (이때 basicType은 T_CHAR 로 넘어간다. 문자열이라 그런듯.)
+
+-> ArraySupport.utf16hashCode
+```java
+private static int utf16hashCode(int result, byte[] value, int fromIndex, int length) {  
+    int end = fromIndex + length;  
+    for (int i = fromIndex; i < end; i++) {  
+        result = 31 * result + JLA.getUTF16Char(value, i);  
+    }  
+    return result;  
+}
+```
+
+즉 여기서 31이 나온다.
+
+왜 31이지? 이걸 어떻게 검색해야 나올까 ?
+
+
+## Why does Java's hashCode() in String use 31 as a multiplier?
+
+
+### What is Hashing ?
+
+일단 해싱이 무엇인가를 보아야 할듯.
+
+임의의 크기의 데이터를 고정 크기의 데이터로 변환하는 작업을 말하며, 이 변횐된 값을 Hash value 라고 한다.
+그리고 이 값을 변환하는 function 을 hash function 이라 하며, 당연히 그 내용은 알고리즘에 따라 다 다르다.
+-> hashValue = hashFunction(Data)
+
+해싱은 충돌할 수 있다. 그러니까 function 의 implementation 에 따라서, 서로 다른 A, B, 값에 대하여
+hashFunction (A) = hashFunction(B) 일 수 있다. 
+이걸 해싱 충돌이라고 부른다.
+
+쉽게 말하면 값의 변환인데. 왜 값을 변환하는가 ?
+빠르게 데이터를 저장하고 검색하기 위함.
+
+Hashing 을 이용하면 값을 O( 1 ) 의 시간복잡도로 찾을 수 있다.
+이는 Array 도 마찬가지인데...
+
+#### Difference between Hash data structure and Array
+
+Array 도 'index' 만 알면 해당 위치에 있는 값을 O( 1 ) 의 복잡도로 retrieve 할 수 있지만,
+어떠한 '값' 이 존재하느냐 안하느냐는 배열을 다 순회해야 하므로 O (n) 이 걸린다.
+
+해쉬의 경우, 'Key' 값만 알면 이 녀석이 존재하는지 안하는지 바로 알 수 있다. 
+
+이는 Java 에서 `Set` interface 를 구현한 `HashSet`,  `HashMap` 등과 연관이 있다.
+
+자바의 `HashMap` 을 살펴보면
+
+```java
+HashMap<String, Integer> map = new HashMap<>();
+map.put("apple", 100);
+int value = map.get("apple"); // O(1) - 키 "apple"로 직접 접근
+```
+
+`Map` 은 Key-value 형태를 같은 자료구조이다. 
+그리고 위 코드에서 `HashMap` 에 key 를 apple , value 를 100 으로써 설정해서 값을 `HashMap`에 저장하고,
+apple에 대한 값이 있는지 없는지를 볼려면 `HashMap.get` 을 사용하면 되는데 이 탐색과정이 O ( 1 ) 이다.
+
+> 왜 O ( 1 ) 인가 ? 
+ 
+바로 해쉬가 'Key' 를 'index' 로 변환해주기 때문이다.
+
+```java
+Node<K,V>[] table = new Node[16];  // Node 배열
+
+// 저장: key → index 계산 → 저장
+String key = "apple";
+int index = hash(key) % table.length;  // "apple" → 3
+table[3] = new Node(hash, "apple", 100, null);
+
+// 검색: key → 같은 index 계산 → 바로 찾기  
+int index = hash("apple") % table.length;  // → 3
+Node node = table[3];  // 바로 접근!
+return node.value;  // 100
+```
+
+HashMap 내부에는 Node<K,V> \[] table 이라는 field 가 있으며,
+어떠한 Key 를 hash function 으로 계산하면 index 가 나온다.
+그리고 table\[구한 index] = value 가 되는 것. 
+
+
+### 그래서 왜 31인데 ?
+
+일단 첫번째로 해싱 분산 그리고 두번째로 성능을 얘기한다.
+
+#### 일단 31을 곱하면 무슨일이 ...?
+
+31 = 11111( 2 )
+
+그러니까 a x 31 = a x 2^4 + a x 2^3 + a x 2^2 + a x 2^1 + a x 2^0 (원본)
+= a x (2^5 -1)
+= a << 5 - a
+
+그러니까 5번 왼쪽으로 쉬프팅하고 거기서 원본 값 자체를 뺀 것을 의미.
+
+참고로 31은 메르센 수 (2^n - 1) 형태이다. 그래서 31 을 고른게 아닐지? 하드웨어적으로 유리하지 않은가.
+그리고 31은 너무 작지도, 크지도 않는 수라고 함.
+
+그래서 성능으로는 소수중에서는 메르센 수가 유리하다고 볼 수 있음.
+
+#### 왜 소수를 써야 하는가 ?
+
+어떤 수 x 와 소수를 곱하면 다른 수들과 공통인수를 거의 갖지 않기 때문이다.
+(수 자체의 약수를 제외하곤)
+그러면 충돌이 안 일어난다.
+
+해싱함수는 해시 테이블크기 (modulus) 가 중요하고 보통 구한 값을 해시테이블로 나머지 처리 한다.
+
+```java
+--> 해시 테이블의 크기가 9 라면
+해시 함수: (char1 * 6 + char2 * 6 + char3 * 6) % 9
+```
+
+만약 31이 아니라 6을 사용한다고 생각해보자.
+
+```java
+// 테이블 크기 9, 곱셈 상수 6
+for (int i = 0; i < 9; i++) {
+    System.out.println(i + " * 6 % 9 = " + (i * 6 % 9));
+}
+
+결과:
+0 * 6 % 9 = 0
+1 * 6 % 9 = 6  
+2 * 6 % 9 = 3
+3 * 6 % 9 = 0  ← 반복 시작
+4 * 6 % 9 = 6
+5 * 6 % 9 = 3
+6 * 6 % 9 = 0
+7 * 6 % 9 = 6
+8 * 6 % 9 = 3
+```
+
+근데 31을 쓰면
+
+```java
+// 테이블 크기 9, 곱셈 상수 31
+for (int i = 0; i < 9; i++) {
+    System.out.println(i + " * 31 % 9 = " + (i * 31 % 9));
+}
+
+결과:
+0 * 31 % 9 = 0
+1 * 31 % 9 = 4  
+2 * 31 % 9 = 8
+3 * 31 % 9 = 3
+4 * 31 % 9 = 7
+5 * 31 % 9 = 2
+6 * 31 % 9 = 6
+7 * 31 % 9 = 1
+8 * 31 % 9 = 5
+```
+
+충돌이 안 일어난다.
+
+
+#### 성능에 관하여
+
+추가적으로 성능에 대해서는, 
+
+https://stackoverflow.com/questions/62740462/multiply-an-int-by-30-31-32-are-these-really-optimized-by-the-compiler-eff
+
+이 글에 따르면 레딧의 필자는 31 연산에 대해서 kotlin 으로 작성하고, 
+이에 해당하는 바이트코드를 intellIJ Feature 를 이용하여 뜯어보았다고 한다.
+
+![[Screenshot 2025-09-17 at 2.56.33 PM.png|500]]
+
+별다른 차이가 없는 모습. 그러니까 bit shift 연산에 대해서 최적화가 따로 안되어있는 모습이다.
+
+![[Screenshot 2025-09-17 at 2.56.52 PM.png|500]]
+
+이에 비해 파이썬은 C 언어의 이러한 최적화가 없다고 얘기함.
+
+그럼 '31' 에 대한 출처는 ? -> Effective Java
+
+이는 Effective Java 의 Item 11, Always override `hashCode` when you override `equals` 파트에 나온다.
+
+### Contract of `hashcode`
+
+이에 대한 설명은 Object.hashCode() 의 javaDoc 에 나와있다.
+
+```java
+- Whenever it is invoked on the same object more than once during an execution of a Java application, 
+  the hashCode method must consistently return the same integer, 
+  provided no information used in equals comparisons on the object is modified. 
+  This integer need not remain consistent from one execution of an application to another execution of the same application.
+  
+- If two objects are equal according to the #equals(Object) equals method, 
+  then calling the hashCode method on each of the two objects must produce the same integer result.
+  
+- It is not required that if two objects are unequal according to the equals method, 
+  then calling the hashCode method on each of the two objects must produce distinct integer results. 
+  However, the programmer should be aware that producing distinct integer results 
+  for unequal objects may improve the performance of hash tables.
+```
+
+1. 하나의 자바 어플리케이션의 실행 중에서 같은 객체에 대해 한번 이상의 hashCode 가 호출되면, 반드시 이 함수는 동일한 Integer 값을
+   반환해야 한다.
+   
+   만약 객체에 대한 `equals` 비교에 쓰이는 정보가 수정되지 않는다면, 
+   이 Integer 값은 어떤 한 어플리케이션의 실행과 또 다른 어플리케이션의 실행으로부터 나온 값 (`hashCode` 의 결과값) 은 같지 않아야 한다.
+   
+   -> 그러니까, 같은 어플리케이션에 안에서는, 같은 객체에 대해서 `hashCode` 를 호출하면 재 호출해도 그 값이 같아야 하고,
+   `equals` 에 쓰이는 정보 (paremeter 나 뭐 어떤 값들) 이 바뀌지 않는다면, 서로 다른 어플리케이션일때 서로 다른 `hashCode` 값을 가져야 한다는 의미이다.
+   
+   쉽게 말해서 다른 어플리케이션이면 다른 `hashCode` 값을 가져야 한다는 이야기.
+   
+   그리고 이 Contract 때문에 `equals` 를 수정한다 -> `equals` 를 판단하는 정보가 바뀐다 (기준이 바뀐다) -> `hashCode` 를 수정해야 한다 라는 의미가 된다.
+
+2. 만약 두 객체가 `#equals(Object) equals` 메서드에 의해 같다고 보여지면,
+   두 객체의 `hashCode` 메서드의 결과값은 같은 Integer 값을 만들어내야 한다.
+   -> 이래서 만약 hashCode 값이 다르면 `equals` 의 결과는 false 가 되야 함.
+
+
+3. 만약 두 객체의 `equals` 결과가 다르다고 해서, 
+   두 객체의 `hashCode` 의 값이 무조건 달라야 한다는 의무는 없다.
+    
+   하지만 프로그래머는 unequal 한 두 객체가 서로 다른 `hashCode` 값을 가지는 것이 hash tables 에 대한 성능을 향상시킬수도 있다는 사실을
+   인지해야 한다.
+   
+   -> 그러니까, 두 객체가 `equals` 에 의해 다르다고 판정이 날때 해쉬코드가 같아도 상관은 없는데,
+   이 때 해쉬코드가 다르면 해쉬테이블의 성능이 좋아질 수 도 있다는 얘기. 
+
+
+> 그래서 Effective Java 에서는 이를 어길시 collections 의 `HashMap` 과 `HashSet` 이 올바르게 동작하지 않을 것이라고 한다.

@@ -1,0 +1,581 @@
+---
+tags:
+  - Java/String
+---
+
+## String
+
+^151c2e
+
+- 책의 필자는 개발도 하지만 시스템 장애진단, 성능 튜닝 및 측정을 하는데, 어떤 객체가 가장 많이 생성되는지 점검하는 경우가있음
+  -> 몇 백개의 객체 중에 String 관련 객체가 항상 상위 5% 안에 듦
+
+```java
+public final class String
+        implements java.io.Serializable, Comparable<java.lang.String>, CharSequence
+```
+
+### String implements ...
+#### Serializable
+
+아무것도 없지만, implements 해두면 해당 객체를 파일로 저장하거나 다른 서버에 전송가능한 상태가 됨
+
+#### Comparable
+
+ compareTo.
+ -> 이 메소드를 호출한 객체가 동일한 타입의 다른 객체를 parameter 로 콜할때, 순위가 앞서 있으면 -1, 같으면 0, 더 후순위이면 1을 리턴하는 메소드.
+ -> String 의 경우, -2 가 될 수도 있다. "a".compareTo("c") -> -2.
+ -> 다 가능하다. 다 순서 차이가 많이 날수록 값이 커짐.
+
+####  CharSequence
+
+-> 문자열을 다룬다고 명시적으로 선언하는 interface
+
+
+
+### Constructors of String
+
+
+#### charset
+##### String (byte[] bytes)
+바이트 배열을 사용하여 스트링 객체 생성, 캐릭터 셋은 현재 사용중인 플랫폼
+##### String (byte[] bytes, String charsetName)
+위와 같되, 캐릭터셋은 뒤에 정해준대로.
+
+
+#### offset & length
+-> 위와 마찬가지로, blank, charset, charsetName
+
+-> 주어진 byte 배열의 일부를 디코딩해 String 객체로 만듦
+
+#### char[]
+-> blank, offset + count
+
+#### codePoints
+
+유니코드 코드 위치 (Unicode code point) 로 구성되어 있는 배열으 일부를 이용해 스트링 생성
+-> 뭔지 모름. UCP ?
+#### original
+객체의 복제본.
+
+#### buffer & builder
+Stringbuffer, Stringbuilder 의 내용을 가지고 스트링 생성
+
+
+
+
+### To Bytes
+
+#### empty, charset, charsetName
+
+같은 프로그램내에선 charset 을 설정 안해줘도 됨.
+다른 시스템에서 전달받은 문자열을 byte 로 변환할때는 charset을 사용하는게 좋음.
+
+
+#### Character Set ?
+
+보통 자바에서는 한글을 표현하기 위해 UTF-16 사용.
+
+```java
+public static void main(String[] args) throws Exception {
+
+    convertAndPrint("한글");
+    convertAndPrint("한글", StandardCharsets.UTF_8);
+    convertAndPrint("한글", StandardCharsets.UTF_16);
+
+    convertAndPrint("English");
+    convertAndPrint("English", StandardCharsets.UTF_16);
+}
+
+
+public static void convertAndPrint (String str) {
+    print("\"" + str + "\"") + " with system Default" + " :" ;
+    for (Byte bt : str.getBytes()) {
+        print(bt);
+    }
+    println();
+}
+
+public static void convertAndPrint (String str, Charset charset) {
+    print("\"" + str + "\"") + " with " + charset + " :" ;
+    for (Byte bt : str.getBytes(charset)) {
+        print(bt);
+    }
+    println();
+}
+
+
+public static <T> void print (T obj) { System.out.print(obj + " "); }
+public static <T> void println (T obj) { System.out.println(obj); }
+public static <T> void println () { System.out.println(); }
+
+------------------------------------
+> Task :Main.main()
+"한글" with system Default : -19 -107 -100 -22 -72 -128
+"한글" with UTF-8 : -19 -107 -100 -22 -72 -128
+"한글" with UTF-16 : -2 -1 -43 92 -82 0
+"English" with system Default : 69 110 103 108 105 115 104
+"English" with UTF-16 : -2 -1 0 69 0 110 0 103 0 108 0 105 0 115 0 104
+```
+
+현재 내 시스템에서는 UTF-8 을 사용중인듯.
+
+UTF-8, UTF-16 둘다 한글 한글자를 표현하는데 3 바이트를 쓰는듯.
+영어는 UTF-8 의 경우 1바이트 ,
+UTF-16 의 경우 앞에 2바이트의 무언가가 있고, 글자 하나당 2바이트를 쓰는 것으로 보인다.
+
+EUC-KR 은 한글 한글자를 위해 2바이트를 사용한다고 함.
+
+
+#### UnsupportedEncodingException
+
+-> byte 배열과 charset 을 스트링으로 매개변수로 받아 생성하는 경우
+-> 또는 get 하는 경우
+
+
+### String with null
+
+-> 어떤 객체든 마찬가지
+
+```java
+String str = null;
+
+str.getBytes()         ->> 바로 에러 직행이다.
+
+if ( str == null ) {        ->>> 널인지 이렇게 확인할 것.
+        ....
+}
+```
+
+
+
+#### null 과 런타임
+
+-> 어떤 객체가 null 인지는 런타임에서만 확인할 수 있다!
+
+
+### Methods
+
+#### length
+
+```java
+print(" ".length());  ->> 1
+```
+
+#### empty
+
+
+```java
+println("".isEmpty());
+println(" ".isEmpty());
+println(" ".isBlank());
+------
+> Task :Main.main()
+true
+false
+true
+```
+
+#### compare
+
+
+##### equals - plain, case
+
+```java
+String s1 = "test";
+String s2 = "test";
+
+if (s1 == s2) {
+    println("same");
+} else {
+    println("not same");
+}
+
+String s3 = new String("TesT");
+if (s1 == s3) {
+    println("same");
+} else {
+    println("not same");
+}
+if (s1.equalsIgnoreCase(s3)) {
+    println("same");
+} else {
+    println("not same");
+}
+------------------------
+> Task :Main.main()
+same
+not same
+same
+```
+
+'==" 를 썼을때, equals 가 아니어도 same 이다.
+-> constant pool 에 의해, s1 과 s2는동일한 객체이다.
+
+다르게 할려면 new.
+
+##### constant pool
+^d70982
+
+자바에는 constant pool 이라는게 있는데, 객체들을 재사용하기 위한 장치.
+
+String 의 경우, 동일한 값을 갖는 객체가 있으면 이미 만든 객체를 재사용.
+실질적으로 위 예시에서 s1 와 s2 는 같은 객체이다.
+
+하지만, s1 = s2 가 의미하는 바는, 각 변수는 곧 포인터고, 그 포인터가 가리키는 객체가 동일하다는 말이 될 수 밖에 없지 않나 ?
+(아마 그럴 것이다. 왜냐하면 변수명이 다른데, 포인터가 가리키는 객체는 같겠지만, 포인터 자체는 다를 수 밖에 없지 않나?)
+
+> 왜냐하면, 변수명 다르다. 결국 이 변수명도 어딘가에 저장되어야 하지 않는지 ?
+
+
+
+##### compareTo - plain, case
+
+-> "a".compareTo("c") 의 결과값은 -2 이다.
+스트링의 경우, 단순히 -1, 0, 1 만 가지는게 아님.
+
+
+##### ==contentEquals==
+
+
+
+#### satisfy the condition - boolean
+
+##### startsWith (prefix, toffset)
+~로 시작하는지
+
+- toffset : where to begin looking in this string.
+##### end
+~로 끝나는지
+##### contains
+포함하는지
+##### matches
+regex 문법에 해당하는게 존재하는지
+
+
+```java
+{
+        String str = "This is a String This";
+        trueOrFalse("startsWith", str.startsWith("This"));
+        trueOrFalse("startsWith", str.startsWith("This", 16));
+        trueOrFalse("startsWith", str.startsWith("This", 17));
+        println(str.indexOf("This", 5));
+        trueOrFalse("endsWith", str.endsWith("This"));
+        trueOrFalse("endsWith", str.endsWith("this"));
+        trueOrFalse("contains", str.contains("String "));
+        trueOrFalse("contains", str.contains("xxx"));
+        // An invocation of str.matches(regex) is equivalent to java.util.regex.Pattern.matches(regex, str)
+        trueOrFalse("mathces", str.matches("[ia]"));
+        trueOrFalse("mathces", str.matches("a\\sS"));
+        trueOrFalse("mathces", str.matches(".*is a.*\n"));
+}
+
+public static void trueOrFalse (String functionName, boolean value) {
+    print(functionName + " : ");
+    if(value) { println("true"); } else { println("false"); }
+}
+--------------> Task :Main.main()
+startsWith :  true
+startsWith :  false
+startsWith :  true
+17
+endsWith :  true
+endsWith :  false
+contains :  true
+contains :  false
+mathces :  false
+mathces :  false
+mathces :  true
+```
+
+##### regionMatches
+
+문자열의 특정 부분이 파라미터의 문자열과 동일한지 판단
+
+- ignoreCase : 대소문자 구분
+- toffset : 비교를 시작할 위치
+- other : 존재하는지 찾을 문자열
+- ooffset : other 의 비교시작지점
+- len : 비교할 char 의 개수
+
+```java
+String text = "This is a String This";
+String cp1 = "is";
+String cp2 = "this";
+trueOrFalse("regionMatches", text.regionMatches(2, cp1, 0, 1));
+trueOrFalse("regionMatches", text.regionMatches(true, 0, cp2, 0, 4));
+trueOrFalse("regionMatches", text.regionMatches(true, 0, cp2, 0, 3));
+trueOrFalse("regionMatches", text.regionMatches(false, 0, cp2, 0, 3));
+
+trueOrFalse("regionMatches", text.regionMatches(false, 0, cp2, 1, 3));
+println(text.lastIndexOf("his"));
+trueOrFalse("regionMatches", text.regionMatches(false, 18, cp2, 1, 3));
+println();
+trueOrFalse("regionMatches", text.regionMatches(false, 18, cp2, 1, 4));
+
+----------------
+
+> Task :Main.main()
+regionMatches :  true
+regionMatches :  true
+regionMatches :  true
+
+regionMatches :  false
+regionMatches :  false
+18
+regionMatches :  false
+
+
+```
+
+-> 말이 안되면 다 false 다. toffset 또는 ooffset 이 음수일때라던지
+toffset + len 이 비교대상의 길이보다 크다던지
+
+#### find the position
+
+##### indexOf
+
+-> 앞에서부터 검색
+-> int 를 매개변수로 ? -> 알아서 char 로 형변환
+
+-> fromIndex -> 검색을 시작할 위치
+
+찾으면 index 를, 없으면 -1 을 반환
+
+
+##### lastIndexOf
+
+-> 뒤에서부터 검색
+찾으면 index 를, 없으면 -1 을 반환
+
+-> fromIndex -> 마찬가지로 검색을 시작할 위치
+
+```java
+String text = " a b c d e a b c d e";
+println(text.lastIndexOf('a'));
+println(text.lastIndexOf('a', 8));
+-----------------
+> Task :Main.main()
+11
+1
+```
+
+헷갈릴 수 있는것은, 뒤에 fromIndex 는 절대값이다. 마지막에서부터 8 만큼 왼쪽으로 움직인 다음에 그다음부터 찾는것이 아니다.
+
+
+#### extract
+
+
+##### char
+
+```java
+String text = "This is a String";
+println("char at 3 : " + text.charAt(8));
+char[] chars = new char[20];
+text.getChars(0, 10, chars, 3);
+println(new String(chars));
+println(text.codePointAt(0));   --->> 유니코드 반환. char 값으로.
+println((char)text.codePointAt(0));
+-----------
+> Task :Main.main()
+char at 3 : a
+This is a
+84
+T
+```
+
+##### char to String
+
+##### String to char
+
+
+
+```java
+char[] chars = {'a', 'b', 'e', ' ', 's'};
+String fromChars = String.copyValueOf(chars);
+println(fromChars);
+fromChars = String.copyValueOf(chars, 3, 2);
+println(fromChars);
+chars = "This is a String".toCharArray();
+for (char ch : chars) {
+    print(ch);
+}
+----------------
+> Task :Main.main()
+abe s
+ s
+T h i s   i s   a   S t r i n g
+
+```
+
+
+#### get portion of String
+
+^3021fc
+
+
+```java
+{
+        String text = "This is a String";
+        println(text.substring(2));
+        println(text.substring(2,5));
+        println(text.subSequence(0, 4));
+}
+
+public static <T> void println (T obj) { System.out.println(obj); }
+
+-------------
+
+> Task :Main.main()
+is is a String
+is
+This
+```
+
+-> 근데 subSequence 의 return type 은 CharSequence , 즉 interface 이다.
+어떻게 저걸 바로 출력하는거지 ??
+
+
+#### split
+
+```java
+String text = "this is a text this is a text";
+for (String str : text.split(" ")) {
+    print(str + ",");
+}
+println();
+for (String str : text.split("a")) {
+    print(str + ",");
+}
+println();
+for (String str : text.split(" ", 0)) {
+    print(str + ",");
+}
+println();
+for (String str : text.split(" ", 3)) {
+    print(str + ",");
+}
+println();
+for (String str : text.split(" ", 5)) {
+    print(str + ",");
+}
+------------------
+
+> Task :Main.main()
+this, is, a, text, this, is, a, text,
+this is ,  text this is ,  text,
+this, is, a, text, this, is, a, text,
+this, is, a text this is a text,
+this, is, a, text, this is a text,
+```
+
+
+#### change the content
+
+concat, trim
+
+
+
+#### intern - method you shouldn\'t use
+
+
+#### complements for String
+
+-> String 은 immutable 하다 !
+
+##### StringBuffer
+
+##### StringBuilder
+
+이게 왜 깨지지 ?
+
+
+
+
+오늘은 머릿속에 내용이 잘 안들어온다...
+
+
+#### Java 에서의 예시
+
+
+##### StringBuilder, StringBuffer
+
+
+```java
+class TestThread extends Thread {  
+    private Object buffer;  
+    private String word;  
+      
+    public TestThread(Object buffer, String word) {  
+        this.buffer = buffer;
+        this.word = word;  
+    }  
+      
+    @Override  
+    public void run() {  
+        for (int i = 0; i < 100; i++) {  
+            if (buffer instanceof StringBuilder) {  
+                ((StringBuilder) buffer).append(word);  
+            } else if (buffer instanceof StringBuffer) {  
+                ((StringBuffer) buffer).append(word);  
+            }  
+        }  
+    }  
+}  
+  
+public class Solution {  
+    public static void main(String[] args) throws Exception {  
+        System.out.println("StringBuilder:");  
+        for (int round = 1; round <= 2; round++) {  
+            StringBuilder sb = new StringBuilder();  
+              
+            Thread t1 = new TestThread(sb, "A");  
+            Thread t2 = new TestThread(sb, "B");    
+            Thread t3 = new TestThread(sb, "C");  
+              
+            t1.start();  
+            t2.start();  
+            t3.start();  
+              
+            t1.join();  
+            t2.join();  
+            t3.join();  
+              
+            System.out.println(sb.toString());  
+        }  
+          
+        System.out.println("StringBuffer:");  
+        for (int round = 1; round <= 2; round++) {  
+            StringBuffer sb = new StringBuffer();  
+              
+            Thread t1 = new TestThread(sb, "A");  
+            Thread t2 = new TestThread(sb, "B");    
+            Thread t3 = new TestThread(sb, "C");  
+              
+            t1.start();  
+            t2.start();  
+            t3.start();  
+              
+            t1.join();  
+            t2.join();  
+            t3.join();  
+              
+            System.out.println(sb.toString());  
+        }  
+    }  
+}
+```
+
+```java
+java ./Solution.java
+
+StringBuilder:
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBCBBBBCCBCBBBCCBCBBBCBBCBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+StringBuffer:
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+```
+
+```
