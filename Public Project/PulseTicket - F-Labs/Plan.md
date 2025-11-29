@@ -44,9 +44,6 @@
 - [x] 기본적인 DB 테이블 설계 (✅ 251109)
 - [ ] 예약 취소 및 시간 만료 처리
 
-
-- [ ] 테스트 환경을 local 은 H2, CI/CD 는 TestContainer 로 바꾸기 (docker)
-
 ### **Phase 3: Redis Caching Integration**
 - [ ] Redis를 이용한 좌석 상태 캐싱
 - [ ] 대기열 시스템 구현

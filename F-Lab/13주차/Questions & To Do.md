@@ -17,4 +17,3 @@
 - [ ] ACID 에서 왜 atomicity를 달성하기 어려운 것 일까? ➕ 2025-11-28 
 - [ ] ALU (Arithmetic Logic Unit) ➕ 2025-11-28 
       https://blog.yevgnenll.me/posts/computer-math-division-why-slow 
-
