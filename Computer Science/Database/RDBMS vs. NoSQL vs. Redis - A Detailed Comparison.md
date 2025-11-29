@@ -1,4 +1,4 @@
-- [ ] RDBMS vs. NoSQL vs. Redis: A Detailed Comparison ➕ 2025-08-19 
+- [x] RDBMS vs. NoSQL vs. Redis: A Detailed Comparison ➕ 2025-08-19 ✅ 2025-11-29
 
 ### ||Q|| : Asking for detailed examples of RDBMS vs. NoSQL pros and cons
 
