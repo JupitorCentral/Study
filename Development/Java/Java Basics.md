@@ -40,3 +40,46 @@ expression ? if expression is true : if expression is false
 
 instanceof 도 연산자. -> 10장에서.
 비트 연산을 하는 7개의 연산자.
+
+## 가변 parameter (varargs)
+
+```java
+accessModifier returnType methodName(datatype... variableName) {
+    // method body
+}
+```
+
+```java
+public class VarargExample {
+    public int sumNumber(int... args) {
+        System.out.println("argument length: " + args.length);
+        
+        int sum = 0;
+        for(int x : args) {
+            sum += x;
+        }
+        return sum;
+    }
+    
+    public static void main(String[] args) {
+        VarargExample ex = new VarargExample();
+        
+        // 다양한 개수의 인자로 호출 가능
+        ex.sumNumber();              // 0개
+        ex.sumNumber(10);            // 1개
+        ex.sumNumber(10, 20);        // 2개
+        ex.sumNumber(10, 20, 30, 40, 50); // 5개
+    }
+}
+```
+
+### 내부 동작 원리
+
+varargs는 내부적으로 배열로 처리된다. 즉, `int... nums`는 실제로 `int[] nums`로 컴파일되며, 메서드 내부에서는 배열 문법을 사용해 접근한다. 
+인자가 없으면 length가 0인 배열이 생성된다.
+
+### 주요 제약 사항
+
+-  하나의 메서드에 하나만 사용 가능
+-  varargs는 **반드시 파라미터의 마지막에 위치**해야 한다.
+

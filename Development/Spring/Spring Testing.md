@@ -217,3 +217,59 @@ public class EmbeddedRedisConfig {
     }
 }
 ```
+
+---
+## @Import
+
+@Import는 필요한 configuration만 명시적으로 추가하는 것이지, full application context를 로드하는 것이 아닙니다.
+
+### @DataJpaTest가 로드하는 것:​​
+
+- JPA repositories
+- Entity classes
+- EntityManager
+- DataSource configuration
+- Transaction management
+
+### 로드하지 않는 것:​​
+
+-  @Component, @Service, @Controller
+- Web layer components
+- Full auto-configuration
+
+
+## @BeforeAll vs @BeforeEach
+
+@BeforeAll은 JUnit 5에서 제공하는 lifecycle annotation으로, 테스트 클래스 내의 모든 테스트 메서드가 실행되기 전에 딱 한 번만 실행되는 메서드를 지정할 때 사용
+기본적으로 @BeforeAll은 static method여야 하는데, 그 이유는 JUnit이 각 테스트 메서드마다 새로운 테스트 클래스 인스턴스를 생성하기 때문
+
+근데 @BeforeAll 은 static 이어야 해서, 의존성과 앞뒤가 안맞는 상황이 생기는데, (의존성 주입이 안됨)
+이때는 @TestInstance(TestInstance.Lifecycle.PER_CLASS) 을 쓰면 됨
+
+```java
+@DataJpaTest  
+@ActiveProfiles("test")  
+@RequiredArgsConstructor(onConstructor_ = @Autowired)  
+@Import(SeatService.class)  
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)        // @BeforeAll 을 인스턴스 메서드로 사용 가능.  
+public class SeatServiceTest {  
+  
+    private final SeatService seatService;  
+    private final EventRepository eventRepository = null;  
+    private final SeatRepository seatRepository;  
+  
+    private Event testEvent;  
+  
+    @BeforeAll  
+    void setUp() {         // -> static 안써도 됨
+       testEvent = eventRepository.save(Event.builder()  
+          .name("Test Event")  
+          .totalSeats(10)  
+          .build());  
+    }  
+  
+    @Test  
+    void createUserWithoutValidation() {    
+    }
+}
+```
