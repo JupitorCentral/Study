@@ -33,6 +33,21 @@
 		- [x] **Void 메서드** (`doNothing`, `doThrow` 등) ✅ 2025-12-15
 	- [x] Unstubbed Invocation ✅ 2025-12-15
 	- [x] InjectMocks ✅ 2025-12-15
+	- [x] Mokito 의 Mock 대신에 @MockBean 을 써야하는 상황? 이유? ✅ 2025-12-16
+		- [x] Context Recreation ✅ 2025-12-16
+			- [x] Spring 의 Context Caching 원리 ✅ 2025-12-16
+			- [x] How to handle prevent Recreation ✅ 2025-12-16
+
+- [x] Exception 발생시 Controller 에서 어떻게 처리하게 할 것인가 ? ➕ 2025-12-16 ✅ 2025-12-16
+      -> Exception 을 공부하는 이유 : Controller Test 때문
+	- [ ] @ExceptionHandler 
+	- [ ] @RestControllerAdvice
+	- [ ] ResponseEntityExceptionHandler
+	- [x] ProblemDetail (RFC 9457, RFC 7807) ✅ 2025-12-16
+		- [x] 내 Custom Exception 과 겹치는 거 아냐 ? -> Spring MVC Exception Handling Mechanism ✅ 2025-12-16
+		- [x] spring.mvc.problemdetails.enabled=true 적용시 Custom Exception 이 발생한다면, 또 기존 Exception 은 어떻게 처리되는지 ? ✅ 2025-12-16
+
+
 
 - [ ] PayManagementController 생성 및 테스트 ➕ 2025-12-14 
 
