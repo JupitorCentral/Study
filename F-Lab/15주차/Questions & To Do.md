@@ -40,9 +40,14 @@
 
 - [x] Exception 발생시 Controller 에서 어떻게 처리하게 할 것인가 ? ➕ 2025-12-16 ✅ 2025-12-16
       -> Exception 을 공부하는 이유 : Controller Test 때문
-	- [ ] @ExceptionHandler 
-	- [ ] @RestControllerAdvice
-	- [ ] ResponseEntityExceptionHandler
+	- [x] @ExceptionHandler ✅ 2025-12-16
+	- [x] @RestControllerAdvice ✅ 2025-12-16
+	- [x] 커스텀 익셉션 핸들러에서 중복되는 코드는 어떻게 처리하는가 ? -> 예외처리 흐름에 대한 이해 ✅ 2025-12-17
+		- [x] 기존에 존재하던 Exception 처리 흐름 ✅ 2025-12-17
+		- [x] Custom Exception ✅ 2025-12-17
+		- [x] Return Type 에 따라 달라지는 분기 ✅ 2025-12-17
+		- [x] 그렇다면, handleExceptionInternal 에서 리플렉션으로 커스텀익셉션의 getProblemdetail 이 있는지 판단하면 되는건가? ✅ 2025-12-17
+		- [ ] ErrorResponse
 	- [x] ProblemDetail (RFC 9457, RFC 7807) ✅ 2025-12-16
 		- [x] 내 Custom Exception 과 겹치는 거 아냐 ? -> Spring MVC Exception Handling Mechanism ✅ 2025-12-16
 		- [x] spring.mvc.problemdetails.enabled=true 적용시 Custom Exception 이 발생한다면, 또 기존 Exception 은 어떻게 처리되는지 ? ✅ 2025-12-16
