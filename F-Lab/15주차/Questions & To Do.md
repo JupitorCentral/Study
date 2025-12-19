@@ -1,4 +1,4 @@
-- [ ] 토비의 스프링 7장 ➕ 2025-12-14 
+- [ ] 토비의 스프링 7장 ➕ 2025-12-14
 - [ ] 토비의 스프링 8장 ➕ 2025-12-14 
 - [ ] 토비의 스프링 9장 ➕ 2025-12-14 
 - [ ] 자바 성능 튜닝 이야기 2장 ➕ 2025-12-14 
@@ -12,7 +12,7 @@
 	- [ ] 4가지 row-level Lock
 	- [ ] page level locks
 	->이 3가지 level lock을 이해하기 위해 어떻게 postgreSQL 이 데이터를 다루는지 이해해야 함
-	- [ ] postgresql 에서의 inserting, deleting, and updating tuples
+	- [x] postgresql 에서의 inserting, deleting, and updating tuples ✅ 2025-12-19
 - [x] PostgreSQL 의 기본적인 파일 구조 - Heap Table, page, page header, tuple, tuple header ➕ 2025-12-15 ✅ 2025-12-15
 - [x] postgreSQL 이 ACID 중 A와 I  를 보장하기 위해 사용하는 테크닉 SI ✅ 2025-12-15
 
@@ -49,7 +49,7 @@
 		      Controller 의 파라미터로 넘어온 객체가 다르면 무슨 문제가 생기는가 ?
 		- [x] 이에 대한 해결책은 ? -> ArgumentCaptor ✅ 2025-12-18
 		- [x] 근데 난 모든 필드를 비교해야하는데, equals 보다 비용이 더 나가는거 아닌가? ✅ 2025-12-18
-		      -> `assertThat.usingRecursiveCompariso`
+		      -> `assertThat.usingRecursiveComparison`
 		- [x] verify.usingRecursiveAssertion 의 순서 문제 ✅ 2025-12-18
 		- [x] wrong usage of Custom Handler (signature is wrong with parameter) ✅ 2025-12-18
 		- [x] `usingRecursiveAssertion` vs `usingRecursiveComparison` ✅ 2025-12-18
@@ -65,11 +65,16 @@
 		- [x] 그렇다면, handleExceptionInternal 에서 리플렉션으로 커스텀익셉션의 getProblemdetail 이 있는지 판단하면 되는건가? ✅ 2025-12-17
 		- [x] ErrorResponse ✅ 2025-12-17
 	- [x] ProblemDetail (RFC 9457, RFC 7807) ✅ 2025-12-16
-		- [x] 내 Custom Exception 과 겹치는 거 아냐 ? -> Spring MVC Exception Handling Mechanism ✅ 2025-12-16
+		- [x] 내 Custom Exception 과 겹치는 거 아냐 ? -> Spring MVC Exception Handling Mechanism with  RestControllerAdvice ✅ 2025-12-16
 		- [x] spring.mvc.problemdetails.enabled=true 적용시 Custom Exception 이 발생한다면, 또 기존 Exception 은 어떻게 처리되는지 ? ✅ 2025-12-16
+- [ ] Unification of BiConsumer and BiFunction 
+	- [x] Consumer, BiConsumer, BiFunction ✅ 2025-12-19
+	- [x] void-compatible, value compatible ✅ 2025-12-19
 
 
-- [ ] PayManagementController 생성 및 테스트 ➕ 2025-12-14 
+- [x] PayManagementController 생성 및 테스트 ➕ 2025-12-14 ✅ 2025-12-18
+
+
 - [ ] github action 설정 ➕ 2025-12-18 
 
 - [ ] java 각 버전에 따른 language changes 정리 ➕ 2025-12-14 
