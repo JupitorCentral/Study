@@ -14,7 +14,8 @@
 	->이 3가지 level lock을 이해하기 위해 어떻게 postgreSQL 이 데이터를 다루는지 이해해야 함
 	- [x] postgresql 에서의 inserting, deleting, and updating tuples ✅ 2025-12-19
 - [x] PostgreSQL 의 기본적인 파일 구조 - Heap Table, page, page header, tuple, tuple header ➕ 2025-12-15 ✅ 2025-12-15
-- [x] postgreSQL 이 ACID 중 A와 I  를 보장하기 위해 사용하는 테크닉 SI ✅ 2025-12-15
+- [x] postgreSQL 이 ACID 중 A와 I  를 보장하기 위해 사용하는 테크닉 ✅ 2025-12-15
+      -> 원리 파악 필요
 
 - [x] SI 의 기본 개념, SI 와 anomaly, SSI  ✅ 2025-12-15
 - [x] txid ✅ 2025-12-15
@@ -74,7 +75,7 @@
 
 - [x] PayManagementController 생성 및 테스트 ➕ 2025-12-14 ✅ 2025-12-18
 
-
+- [ ] jwt 로 보안 설정 (Supabas GoTrue ?) ➕ 2025-12-19 
 - [ ] github action 설정 ➕ 2025-12-18 
 
 - [ ] java 각 버전에 따른 language changes 정리 ➕ 2025-12-14 
