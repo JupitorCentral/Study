@@ -39,8 +39,6 @@
  ^2470c3
 
 
-- [ ] 250928 max water container 이해하기 ➕ 2025-09-28 📅 2025-10-04
-
 - [ ] [[250926 neetcode three-integer-sum]] 답지에서 서로 다른 방법 모두 분석해보기 ➕ 2025-09-26 
 
 - [ ] Map.entrySet -> Set.stream -> F-bounded Polymorphism or Recursive Generics  ➕ 2025-09-24 
